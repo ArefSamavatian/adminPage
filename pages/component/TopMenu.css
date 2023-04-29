@@ -1,0 +1,127 @@
+.TopMenu {
+    grid-area: b;
+    display: flex;
+
+    position: fixed;
+    top: 0;
+
+
+    height: fit-content;
+    width: calc(100% - var(--rootMarginleft));
+    background-color: var(--blueBase);
+    padding-right: 20px;
+    padding-left: 20px;
+
+    align-items: center;
+   
+    flex-direction: row-reverse;
+    z-index: 1;
+    transition: all .3s;
+
+}
+
+.container[dir="ltr"]  .TopMenu{
+    left: auto;
+    right: 0;
+ }
+ 
+ .container[dir="rtl"] .TopMenu {
+    right: auto;
+    left: 0;
+ }
+
+.Profile {
+
+    width: 50px;
+    height: 50px;
+}
+
+.topIcon {
+    padding: 7.5px 12px;
+    width: 46px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.profilePic {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.search {
+
+    display: flex;
+
+
+    
+    width: 250px;
+    height: 40px;
+    border-radius: 50px;
+    align-self: center;
+    background-color: var(--blueBase2);
+
+
+
+}
+.container[dir="ltr"]  .search{
+    margin-right: auto;
+ }
+ 
+ .container[dir="rtl"] .search {
+    margin-left: auto;
+ }
+
+.searchInput {
+    background-color: var(--blueBase2);
+    border: none;
+    padding: 0px 10px;
+    width: 90%;
+}
+
+.searchInput:focus {
+    background-color: var(--blueBase2);
+    border: none;
+}
+
+
+.toggleSideBar {
+    position: relative;
+    left: 0px;
+
+}
+
+
+.conTainerofSwitchLanguage {
+    position: absolute;
+    transform: translateY(90px);
+}
+
+.flag{
+    width: 20px;
+}
+
+@media only screen and (min-width: 1200px) {}
+
+
+@media only screen and (max-width: 750px) {
+
+    .TopMenu {
+        height: fit-content;
+        flex-wrap: wrap;
+        padding-bottom: 12px;
+        width: 100%;
+
+    }
+
+    .search {
+        width: 100%;
+    }
+
+
+
+}

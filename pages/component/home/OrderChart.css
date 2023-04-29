@@ -1,0 +1,35 @@
+.OrderChart {
+
+    grid-area: c;
+ 
+    background-color: var(--lightWhite);
+
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+ 
+    padding: 15px;
+    
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+ 
+
+}
+
+
+.OrderChart > .chart{
+    width: 100%;
+    height: 400px;
+   
+}
+
+.TitleOrderChart {
+    width: 100%;
+    height: 40px;
+    border-bottom: solid 1px var(--grayLine);
+    font-size: var(--titleFontSize);
+    color: var(--darkText);
+}
+
+

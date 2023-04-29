@@ -1,0 +1,30 @@
+.SwitchLanguage {
+   
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--blueBase);
+    
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.flagImage {
+    width: 20px;
+
+  
+}
+.container[dir="ltr"]  .flagImage{
+    margin-right: 10px;
+ }
+ 
+ .container[dir="rtl"] .flagImage {
+    margin-left: 10px;
+ }
+
+.SwitchLanguage div {
+    display: flex;
+    padding: 10px;
+}
+

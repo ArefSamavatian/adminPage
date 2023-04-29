@@ -1,0 +1,38 @@
+{
+    "test": {
+        "Hello World": "Hello World",
+        "This is a React app with i18n support.": "This is a React app with i18n support."
+    },
+    "SideBar": {
+        "Home": "home",
+        "Caregory": "Category",
+        "mainCategory": "Main Category",
+        "subCategory": "Sub Category",
+        "Products": "Products",
+        "AddProduct": "Add Product",
+        "ListProduct": "List Product",
+        "GridProduct": "Grid Product",
+        "ProductDetail": "Product Detail",
+        "Orders": "Orders",
+        "NewOrder": "New Order",
+        "OrderDetail": "Order Detail",
+        "OrderHistory": "Order History",
+        "invoice": "invoice",
+        "Review": "Review"
+    },
+    "carBody": {
+        "DailyOrder": "Daily Order",
+        "DailyVisitors": "Daily Visitors",
+        "DailyIncome": "Daily Income",
+        "Orderpending": "Order pending"
+    },
+    "Category": {
+        "Name": "Name",
+        "Add New Category": "Add New Category",
+        "Slug": "Slug",
+        "Sort Description": "Sort Description",
+        "Full Description": "Full Description",
+        "Product Tags": "Product Tags",
+        "Submit": "Submit"
+    }
+}

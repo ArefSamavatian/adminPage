@@ -2,26 +2,174 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+
+
+
+}
+
+
+
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+
+
+
+    /* color*/
+    --blueBase: rgb(26, 40, 62);
+
+    --blueBase2: rgb(40, 53, 70);
+
+    --blueText: rgb(166, 176, 207);
+
+    --whiteText: rgb(246, 246, 246);
+
+    --lightWhite: rgb(255, 255, 255);
+
+    --darkWhite: rgb(253, 253, 253);
+
+    --lightBlue: rgb(136, 170, 243);
+
+    --darkText: rgb(86, 96, 110);
+
+    --lightText: rgb(153, 144, 170);
+
+    --grayLine: rgb(238, 238, 238);
+
+    /* font*/
+
+
+    --titleFontSize: 20px;
+    --smalltitleFontSize: 18px;
+    --mediomFontSize: 14px;
+
+
+    /* margin auto*/
+
+    --rootMarginleft: 250px;
+
+
+
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+
+.container {
+  
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: "a b"
+        "a c";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 70px auto;
+
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+.Dashborde {
+    grid-area: c;
+    background-color: var(--darkWhite);
+
+    height: 100%;
+    display: grid;
+    z-index: auto;
+
+    grid-template-areas: "a a a"
+        "b b c"
+        "d d d"
+        "e f f";
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    transition: all .3s;
+
+
+    /*side bar effect */
+   
+
+}
+
+
+
+.container[dir="ltr"]  .Dashborde{
+    margin-left: var(--rootMarginleft);
+ }
+ 
+ .container[dir="rtl"] .Dashborde {
+    margin-right: var(--rootMarginleft);
+ }
+
+
+.hoverIcon {
+    cursor: pointer;
+
+}
+
+.hoverIcon:hover>.icon {
+
+    color: var(--whiteText);
+}
+
+.hoverIcon:hover>p {
+    color: var(--whiteText);
+}
+
+
+.mediumText {
+    height: fit-content;
+    width: fit-content;
+
+    transition: all .3s ease-out;
+    font: 14px;
+    color: var(--blueText);
+}
+
+@media only screen and (max-width: 750px) {
+
+
+
+
+
+
+    .container {
+
+
+        grid-template-columns: auto 1fr;
+        grid-template-rows: 122px max-content;
+    }
+
+    .Dashborde {
+        margin-left: 0px;
+    }
+
+
+
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+
+    .Dashborde {
+
+        grid-template-areas:
+            "a a a "
+            "b b b"
+            "c c c"
+            "d d d"
+            "e e e"
+            "f f f";
+
+
+
+    }
+
+
+
 }

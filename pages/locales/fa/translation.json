@@ -1,0 +1,38 @@
+{
+    "test": {
+        "Hello World": "سلام دنیا",
+        "This is a React app with i18n support.": "این یک برنامه React با پشتیبانی i18n است."
+    },
+    "SideBar": {
+        "Home": "خانه",
+        "Caregory": "دسته بندی",
+        "mainCategory": "دسته بتدی ها",
+        "subCategory":" زیردسته ها",
+        "Products": "محصولات",
+        "AddProduct": "اضافه کردن محصول",
+        "ListProduct": "لیست محصولات",
+        "GridProduct": "نمایش محصولات",
+        "ProductDetail": "جزعیات محصولات",
+        "Orders": "سفارشات",
+        "NewOrder": "سفارش جدید",
+        "OrderDetail": "جزعیات سفارشات",
+        "OrderHistory": "تاریخچه سفارشات",
+        "invoice": "صورتحساب",
+        "Review": "مرور"
+    },
+    "carBody": {
+        "DailyOrder" :"سفارش روزانه",
+        "DailyVisitors":"بازدید روزانه",
+        "DailyIncome":"درآمد روزانه",
+        "Orderpending":"سفارش در انتظار"
+     },
+     "Category": {
+        "Name": "تام",
+        "Add New Category": "اضافه کردن دسته جدید",
+        "Slug": "اسلاگ",
+        "Sort Description": "مرتب سازی توضیحات",
+        "Full Description": "توضیحات کامل",
+        "Product Tags": "برچسب های محصول",
+        "Submit": "ارسال"
+    }
+}

@@ -1,0 +1,35 @@
+.incomeChartContainer {
+    grid-area: b;
+   
+  
+    background-color: var(--lightWhite);
+
+ 
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 15px;
+    padding: 15px;
+
+}
+
+.IncomeChart {
+  
+    background-color: var(--lightWhite);
+    width: 100%;
+    height: 400px;
+    
+
+    
+  
+
+}
+
+
+
+.IncomeChartTitle > h1 {
+    font-size: var(--titleFontSize);
+    color: var(--darkText);
+     
+    width: 100%;
+    height: 40px;
+    border-bottom: solid 1px var(--grayLine);
+}

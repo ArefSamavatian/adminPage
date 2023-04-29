@@ -1,0 +1,267 @@
+.SideBarMenu {
+    position: fixed;
+
+    width: var(--rootMarginleft);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    grid-area: a;
+    background-color: var(--blueBase);
+    transition: all .3s;
+    overflow: hidden;
+    overflow-y: auto;
+    z-index: 2;
+
+    /*  decoration
+    right: 0;
+     */
+
+
+
+}
+
+.SideBarMenu::-webkit-scrollbar {
+    width: 0;
+    background-color: transparent;
+}
+
+
+
+/*  logo menu */
+
+
+.logoContainer {
+
+
+    width: 250px;
+
+    height: 70px;
+    display: grid;
+    grid-template-areas: "a b c";
+    grid-template-columns: repeat(3 1fr);
+
+    align-content: center;
+
+  
+    /*  decoration 
+
+    grid-template-areas: "c b a";
+    */
+
+
+
+}
+
+.logo {
+    grid-area: b;
+    width: 85px;
+    height: 20px;
+  
+
+
+
+}
+
+.toggleMenuicon {
+
+
+
+
+
+    grid-area: a;
+    cursor: pointer;
+
+     /*  decoration */
+
+ 
+
+}
+
+.container[dir="ltr"]  .toggleMenuicon{
+  
+    padding-left: 25px;
+    padding-right: 10px;
+
+ }
+ 
+ .container[dir="rtl"] .toggleMenuicon {
+   
+    padding-right: 25px;
+    padding-left: 10px;
+
+ }
+
+
+
+/* menu */
+
+.allMenu {
+
+    width: 250px;
+    background-color: var(--blueBase);
+}
+
+
+.mainMenu {
+
+    width: 100%;
+    height: fit-content;
+    cursor: pointer;
+
+
+}
+
+.mainMenu .ContainerMainMenu {
+
+    display: flex;
+    height: 45px;
+
+    padding: 10px 25px;
+
+
+    
+     /*  decoration */
+
+   
+
+}
+
+
+
+
+.icon {
+
+    transition: all .3s ease-out;
+    color: var(--blueText);
+    width: 20px;
+    height: 20px;
+   
+
+
+
+
+}
+
+
+.mainMenu .SideBarName {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    transition: all .3s ease-out;
+    font: 14px;
+    color: var(--blueText);
+
+   
+
+
+
+}
+
+.container[dir="ltr"]  .SideBarName{
+    margin-left: 15px;
+ }
+ 
+ .container[dir="rtl"] .SideBarName {
+    margin-right: 15px;
+ }
+
+.mainMenu .sideBarArrow {
+
+
+    color: var(--blueText);
+    rotate: 90deg;
+    width: 20px;
+    height: 20px;
+  
+
+
+}
+.container[dir="ltr"]  .sideBarArrow{
+    margin-left: auto;
+ }
+ 
+ .container[dir="rtl"] .sideBarArrow {
+    margin-right: auto;
+ }
+
+
+
+
+
+
+
+
+/*childe menu */
+
+.mainMenu .ContainerChilde {
+    background-color: var(--blueBase2);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+
+    overflow: hidden;
+
+
+
+
+
+
+}
+
+
+
+.SidebarChilde {
+
+    width: 100%;
+    display: flex;
+
+    height: 45px;
+
+    cursor: pointer;
+
+    padding: 10px 25px;
+
+
+}
+
+
+.SideBarChildeText {
+    transition: all .3s ease-out;
+    font: 14px;
+    color: var(--blueText);
+    text-decoration: none;
+   
+
+}
+
+.container[dir="ltr"]  .SideBarChildeText{
+    margin-left: 35px;
+ }
+ 
+ .container[dir="rtl"] .SideBarChildeText {
+    margin-right: 35px;
+ }
+
+/* toggle*/
+
+@media only screen and (max-width: 750px) {
+    /*mobile view */
+
+    .SideBarMenu {
+        width: 0px;
+    }
+
+    .toggleMenuicon {
+        position: fixed;
+        top: 25px;
+
+        height: fit-content;
+
+
+
+
+    }
+
+
+}

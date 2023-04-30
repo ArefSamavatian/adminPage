@@ -29,7 +29,9 @@ function App({ Component, pageProps }) {
           <SideBarMenu ></SideBarMenu>
 
           <TopMenu handleDirection={handleDirection}></TopMenu>
-          <Component {...pageProps} className='Dashborde' />
+          <div className='Dashborde' >
+          <Component {...pageProps} />
+          </div>
         </div>
       </I18nextProvider>
     </Provider >

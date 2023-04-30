@@ -1,5 +1,5 @@
-import './TopMenu.css'
 
+import Image from 'next/image'
 
 import { AiTwotoneSetting, AiFillBell, AiOutlineSearch } from 'react-icons/ai';
 
@@ -84,7 +84,7 @@ function TopMenu({handleDirection}) {
             </motion.div>
 
             <div className="Profile topIcon " >
-                <img className='profilePic' src={profilePi} ></img>
+                <Image className='profilePic' src={profilePi}  ></Image>
 
             </div>
 
@@ -93,7 +93,7 @@ function TopMenu({handleDirection}) {
             </div>
 
             <div className="language topIcon hoverIcon" onClick={() => setIsOpen(!isOpen)}>
-                <img className='flag' src={changeImage() ? persian : english} alt={persian}></img>
+                <Image className='flag' src={changeImage() ? persian : english} alt={persian}></Image>
                 <AnimatePresence>
                     {isOpen &&
                         <motion.div className='conTainerofSwitchLanguage' variants={popUp} animate="open" initial="close" exit="close">

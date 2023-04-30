@@ -1,7 +1,7 @@
-import './SideBarMenu.module.css'
+
 
 import { useState, useEffect } from 'react';
-
+import Image from 'next/image'
 
 import srcLogo from "../../public/logo-light.png"
 
@@ -75,7 +75,7 @@ function SideBarMenu() {
     const [expandedIndex, setExpandedIndex] = useState(0);
     const [shrinkMenu, setShrinkMenu] = useState(true);
     const [moseOverSide, SetMoseOverSide] = useState(false)
-    const [smallSize, setSmallSize] = useState(window.innerWidth < 750)
+    const [smallSize, setSmallSize] = useState(typeof window !== 'undefined' && window.innerWidth < 750);
 
 
 
@@ -134,6 +134,7 @@ function SideBarMenu() {
 
 
     /* different between shrink menu in small and big windows */
+
     if (shrinkMenu) {
 
         document.documentElement.style.setProperty('--rootMarginleft', '250px');
@@ -290,13 +291,16 @@ function SideBarMenu() {
 
     const renderMenu = sideBarTab.map((data, index) => {
 
+     
+
+
         return (
 
             <div key={index} className="mainMenu hoverIcon" >
 
                 <div className='ContainerMainMenu hoverIcon' onClick={() => { setIndex(index) }} >
                     {data.icon}
-                    <p className='SideBarName' style={{ opacity: shrinkMenu || moseOverSide ? 1 : 0 }}>{data.name}</p>
+                    <p className='SideBarName'style={{ opacity: shrinkMenu || moseOverSide ? 1 : 0 }} >{data.name}</p>
 
                     {renderArrow(data, index)}
                 </div>
@@ -314,17 +318,19 @@ function SideBarMenu() {
     return (
 
 
+// style={{ width: moseOverSide ? '250px' : "var(--rootMarginleft)" }}
 
-        <ul className='SideBarMenu' style={{ width: moseOverSide ? '250px' : "var(--rootMarginleft)" }} >
+        <ul className='SideBarMenu'  style={{ width: moseOverSide ? '250px' : "var(--rootMarginleft)" }}>
 
             <li className='logoContainer'>
                 <div className='toggleMenuicon hoverIcon SideBaricon icon ' onClick={() => setShrinkMenu(!shrinkMenu)} >
                     <BiMenu className='SideBaricon icon ' />
                 </div>
-                <img className='logo' style={{ opacity: shrinkMenu || moseOverSide ? 1 : 0 }} src={srcLogo}></img>
+            
+                <Image className='logo'  style={{ opacity: shrinkMenu || moseOverSide ? 1 : 0 }} src={srcLogo}></Image>
 
             </li>
-            <li className='allMenu' onMouseEnter={isShrinkenter} onMouseLeave={isShrinkout}>
+            <li className='allMenu' onMouseEnter={isShrinkenter} onMouseLeave={isShrinkout} >
                 {renderMenu}
             </li>
 

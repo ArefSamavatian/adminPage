@@ -1,4 +1,4 @@
-import './SoldByItem.css'
+
 
 const items=[
     {

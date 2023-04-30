@@ -1,4 +1,4 @@
-import './CardBody.css'
+
 import { BsFillPersonCheckFill, BsBagCheckFill, BsFillPeopleFill, BsCashCoin } from 'react-icons/bs'
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from 'react-i18next';

@@ -1,4 +1,4 @@
-import './OrderChart.css'
+
 import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from 'recharts';
 
 const data = [

@@ -1,6 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 * {
     padding: 0px;
@@ -173,3 +173,17 @@
 
 
 }
+
+@import url(../pages/index.css);
+@import url(../pages/component/SideBarMenu.css);
+@import url(../pages/component/TopMenu.css);
+@import url(../pages/component/MainCategory/MainCategoryFrom.css);
+@import url(../pages/component/sideBarPopUp/switchLanguage.css);
+@import url(../pages/component/SubCategory/SubCategoryFrom.css);
+@import url(../pages/component/home/CardBody.css);
+@import url(../pages/component/home/IncomeChart.css);
+@import url(../pages/component/home/OrderChart.css);
+@import url(../pages/component/home/RecentOrder.css);
+@import url(../pages/component/home/SideBarMenu.css);
+@import url(../pages/component/home/SoldByItem.css);
+@import url(../pages/component/home/TopProducts.css);

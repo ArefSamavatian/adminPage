@@ -1,4 +1,4 @@
-import './TopProducts.css'
+
 
 import p1 from '../../../public/p1.jpg'
 import p2 from '../../../public/p2.jpg'

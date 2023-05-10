@@ -10,7 +10,7 @@ export async function connectDatabase() {
 }
 
 export async function insertDocument(client, collection, document) {
-  const db = client.db();
+  const db = client.db("email");
 
   const result = await db.collection(collection).insertOne(document);
 

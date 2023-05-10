@@ -40,7 +40,7 @@ function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <I18nextProvider i18n={i18n}>
-        <div className='container' dir={"ltr"}>
+        <div className='container' dir={"rtl"}>
 
           <SideBarMenu ></SideBarMenu>
 

@@ -16,7 +16,7 @@ i18n
         translation: faTranslation,
       },
     },
-    fallbackLng: 'en',
+    fallbackLng: 'fa',
     debug: true,
     interpolation: {
       escapeValue: false,

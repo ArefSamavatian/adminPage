@@ -22,7 +22,7 @@ import { useTranslation } from 'react-i18next';
 function SideBarMenu() {
 
 
-    console.log("sidebar")
+
     const { t } = useTranslation();
 
 

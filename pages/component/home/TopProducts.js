@@ -13,15 +13,15 @@ function TopProducts() {
 
     console.log("top menu")
 
-    // fetch('/api/newsletter', {
-    //     method: 'POST',
-    //     body: JSON.stringify({ email: "aref@samavt" }),
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    // })
-    //     .then((response) => response.json())
-    //     .then((data) => console.log(data));
+    fetch('/api/newsletter', {
+        method: 'POST',
+        body: JSON.stringify({ email: "goooz@samavt" }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
 
 
 

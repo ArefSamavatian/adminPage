@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { BsFillPersonCheckFill, BsBagCheckFill, BsFillPeopleFill, BsCashCoin } from 'react-icons/bs'
-import { useTranslation } from 'react-i18next';
+
 
 
 const initialState = {

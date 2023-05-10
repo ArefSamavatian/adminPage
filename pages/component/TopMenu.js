@@ -20,26 +20,20 @@ import english from '../../public/english (2).png'
 
 
 
-function TopMenu({handleDirection}) {
+function TopMenu() {
+
+
 
     const { i18n } = useTranslation();
 
 
-    const handlesetLanguage = (newText) => {
-     
-        i18n.changeLanguage(newText)
-
-
-    };
 
     const changeImage = () => {
         if (i18n.language === "en") {
-          
-            handleDirection('ltr')
+
             return false
         } else if (i18n.language === "fa") {
-            handleDirection('rtl')
-          
+
             return true
 
         } else {
@@ -48,7 +42,7 @@ function TopMenu({handleDirection}) {
 
     }
 
-    changeImage()
+
 
     const [isOpen, setIsOpen] = useState(false)
 
@@ -74,18 +68,16 @@ function TopMenu({handleDirection}) {
 
 
 
-    console.log(profilePi)
+ 
     return (
         <div className="TopMenu">
 
             <motion.div className="Setting topIcon hoverIcon" animate={{ rotate: 360 }} transition={{ ease: "linear", duration: 2, repeat: Infinity }}>
                 <AiTwotoneSetting size={22} className='icon' ></AiTwotoneSetting>
-
             </motion.div>
 
             <div className="Profile topIcon " >
-                <Image className='profilePic' src={profilePi}  ></Image>
-
+                <Image className='profilePic' src={profilePi} alt={profilePi} ></Image>
             </div>
 
             <div className="notification topIcon hoverIcon" >
@@ -97,7 +89,7 @@ function TopMenu({handleDirection}) {
                 <AnimatePresence>
                     {isOpen &&
                         <motion.div className='conTainerofSwitchLanguage' variants={popUp} animate="open" initial="close" exit="close">
-                            <SwitchLanguage setLanguage={handlesetLanguage}>/</SwitchLanguage>
+                            <SwitchLanguage>/</SwitchLanguage>
                         </motion.div>
                     }
                 </AnimatePresence>

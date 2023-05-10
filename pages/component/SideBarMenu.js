@@ -21,6 +21,8 @@ import { useTranslation } from 'react-i18next';
 
 function SideBarMenu() {
 
+
+    console.log("sidebar")
     const { t } = useTranslation();
 
 
@@ -135,19 +137,19 @@ function SideBarMenu() {
 
     /* different between shrink menu in small and big windows */
 
-    if (shrinkMenu) {
+    // if (shrinkMenu) {
 
-        document.documentElement.style.setProperty('--rootMarginleft', '250px');
+    //     document.documentElement.style.setProperty('--rootMarginleft', '250px');
 
-    } else {
-        if (smallSize) {
-            document.documentElement.style.setProperty('--rootMarginleft', '0px');
+    // } else {
+    //     if (smallSize) {
+    //         document.documentElement.style.setProperty('--rootMarginleft', '0px');
 
-        } else {
-            document.documentElement.style.setProperty('--rootMarginleft', '70px');
-        }
+    //     } else {
+    //         document.documentElement.style.setProperty('--rootMarginleft', '70px');
+    //     }
 
-    }
+    // }
 
 
 
@@ -327,7 +329,7 @@ function SideBarMenu() {
                     <BiMenu className='SideBaricon icon ' />
                 </div>
             
-                <Image className='logo'  style={{ opacity: shrinkMenu || moseOverSide ? 1 : 0 }} src={srcLogo}></Image>
+                <Image className='logo'  style={{ opacity: shrinkMenu || moseOverSide ? 1 : 0 }} src={srcLogo} alt={srcLogo}></Image>
 
             </li>
             <li className='allMenu' onMouseEnter={isShrinkenter} onMouseLeave={isShrinkout} >

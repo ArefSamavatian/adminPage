@@ -4,18 +4,18 @@ import persian from '../../../public/iran.png'
 import english from '../../../public/english (2).png'
 
 import Image from 'next/image'
+import { useTranslation } from "react-i18next";
 
 
 
+function SwitchLanguage() {
 
-function SwitchLanguage({ setLanguage }) {
+    const { i18n } = useTranslation();
 
 
 
     const handleSubmit = (data) => {
-        setLanguage(data)
-        console.log(data)
-
+        i18n.changeLanguage(data)
     }
 
     return (

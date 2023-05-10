@@ -5,32 +5,48 @@ import { store } from "./store";
 
 import i18n from './i18n';
 import { I18nextProvider } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 import TopMenu from './component/TopMenu'
 import SideBarMenu from './component/SideBarMenu';
 
-import { useState } from 'react';
+import { useState  } from 'react';
 
 
 function App({ Component, pageProps }) {
-  const [direction, setDirection] = useState('rtl')
+
+  const [direction, setDirection] = useState("ltr")
+  const { i18n } = useTranslation();
 
 
-  const handleDirection = (data) => {
+  const mydirection = () => {
+    if (i18n.language === "en") {
 
-    setDirection(data)
+      setDirection("ltr")
+    } else if (i18n.language === "fa") {
+
+      setDirection("rtl")
+
+    } else {
+      setDirection("rtl")
+
+    }
 
   }
+
+
+
+
   return (
     <Provider store={store}>
       <I18nextProvider i18n={i18n}>
-        <div className='container' dir={direction}>
+        <div className='container' dir={"ltr"}>
 
           <SideBarMenu ></SideBarMenu>
 
-          <TopMenu handleDirection={handleDirection}></TopMenu>
+          <TopMenu ></TopMenu>
           <div className='Dashborde' >
-          <Component {...pageProps} />
+            <Component {...pageProps} />
           </div>
         </div>
       </I18nextProvider>

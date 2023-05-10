@@ -9,6 +9,7 @@ import TopProducts from './component/home/TopProducts';
 
 
 function Dashborde() {
+  console.log("index")
   return (
     <Fragment>
 

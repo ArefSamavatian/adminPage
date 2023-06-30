@@ -9,7 +9,7 @@ import TopProducts from './component/home/TopProducts';
 
 
 function Dashborde() {
-  console.log("index")
+  console.log("main")
   return (
     <div className='Dashborde homeDashbord'>
 

@@ -10,7 +10,8 @@ import { useTranslation } from "react-i18next";
 import TopMenu from './component/TopMenu'
 import SideBarMenu from './component/SideBarMenu';
 
-import { useState  } from 'react';
+import { useState } from 'react';
+import Layout from './component/Layout';
 
 
 function App({ Component, pageProps }) {
@@ -40,15 +41,11 @@ function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <I18nextProvider i18n={i18n}>
-        <div className='container' dir={"rtl"}>
+        <Layout>
+         
+          <Component {...pageProps} />
+        </Layout>
 
-          <SideBarMenu ></SideBarMenu>
-
-          <TopMenu ></TopMenu>
-          <div className='Dashborde' >
-            <Component {...pageProps} />
-          </div>
-        </div>
       </I18nextProvider>
     </Provider >
   )

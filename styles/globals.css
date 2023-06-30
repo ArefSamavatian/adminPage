@@ -57,6 +57,22 @@
 
 }
 
+.box {
+    background-color: var(--lightWhite);
+    border-radius: 15px;
+    padding: 26px;
+
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.box .title {
+    font-size: var(--titleFontSize);
+    color: var(--darkText);
+
+    width: 100%;
+    height: 40px;
+    border-bottom: solid 1px var(--grayLine);
+}
 
 .container {
   
@@ -177,7 +193,7 @@
 @import url(../pages/index.css);
 @import url(../pages/component/SideBarMenu.css);
 @import url(../pages/component/TopMenu.css);
-@import url(../pages/component/MainCategory/MainCategoryFrom.css);
+
 @import url(../pages/component/sideBarPopUp/switchLanguage.css);
 @import url(../pages/component/SubCategory/SubCategoryFrom.css);
 @import url(../pages/component/home/CardBody.css);

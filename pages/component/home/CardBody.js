@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 
 function CardBody() {
-
+console.log("card")
     const { t } = useTranslation();
 
 

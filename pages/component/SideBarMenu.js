@@ -279,7 +279,6 @@ function SideBarMenu() {
 
         )
 
-
         return (
             <AnimatePresence>
                 {renderanime}
@@ -293,16 +292,13 @@ function SideBarMenu() {
 
     const renderMenu = sideBarTab.map((data, index) => {
 
-     
-
-
         return (
 
             <div key={index} className="mainMenu hoverIcon" >
 
                 <div className='ContainerMainMenu hoverIcon' onClick={() => { setIndex(index) }} >
                     {data.icon}
-                    <p className='SideBarName'style={{ opacity: shrinkMenu || moseOverSide ? 1 : 0 }} >{data.name}</p>
+                    <p className='SideBarName' style={{ opacity: shrinkMenu || moseOverSide ? 1 : 0 }} >{data.name}</p>
 
                     {renderArrow(data, index)}
                 </div>
@@ -320,16 +316,16 @@ function SideBarMenu() {
     return (
 
 
-// style={{ width: moseOverSide ? '250px' : "var(--rootMarginleft)" }}
+        // style={{ width: moseOverSide ? '250px' : "var(--rootMarginleft)" }}
 
-        <ul className='SideBarMenu'  style={{ width: moseOverSide ? '250px' : "var(--rootMarginleft)" }}>
+        <ul className='SideBarMenu' style={{ width: moseOverSide ? '250px' : "var(--rootMarginleft)" }}>
 
             <li className='logoContainer'>
                 <div className='toggleMenuicon hoverIcon SideBaricon icon ' onClick={() => setShrinkMenu(!shrinkMenu)} >
                     <BiMenu className='SideBaricon icon ' />
                 </div>
-            
-                <Image className='logo'  style={{ opacity: shrinkMenu || moseOverSide ? 1 : 0 }} src={srcLogo} alt={srcLogo}></Image>
+
+                <Image className='logo' style={{ opacity: shrinkMenu || moseOverSide ? 1 : 0 }} src={srcLogo} alt={srcLogo}></Image>
 
             </li>
             <li className='allMenu' onMouseEnter={isShrinkenter} onMouseLeave={isShrinkout} >

@@ -1,0 +1,23 @@
+.categoryContainer {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.category {
+    display: flex;
+    justify-content: space-between;
+}
+
+.categoryHeader {
+    display: flex;
+    align-items: center;
+}
+
+.categoryTitle {
+    padding: 10px;
+}
+
+.categoryChildeName{
+    margin-right: 30px;
+}

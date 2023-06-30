@@ -11,7 +11,11 @@
 
 }
 
-
+body{
+    width: 100%;
+    height: 100vh;
+  
+}
 
 
 :root {
@@ -40,6 +44,9 @@
 
     --grayLine: rgb(238, 238, 238);
 
+    --darkLing: rgb(119, 119, 119);
+
+
     /* font*/
 
 
@@ -54,13 +61,19 @@
 
 
 
+    --mediomspace: 10px;
+    --largeSpace: 20px
+}
 
+.label {
+    font-size: var(--mediomFontSize);
+    font-weight: bold;
 }
 
 .box {
     background-color: var(--lightWhite);
     border-radius: 15px;
-    padding: 26px;
+    padding: var(--mediomspace);
 
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
@@ -75,7 +88,7 @@
 }
 
 .container {
-  
+
     width: 100%;
     height: 100vh;
     display: grid;
@@ -92,34 +105,21 @@
     background-color: var(--darkWhite);
 
     height: 100%;
-    display: grid;
     z-index: auto;
 
-    grid-template-areas: "a a a"
-        "b b c"
-        "d d d"
-        "e f f";
-    grid-template-rows: repeat(4, auto);
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    padding: 20px;
+    padding: var(--largeSpace);
     transition: all .3s;
-
-
-    /*side bar effect */
-   
-
 }
 
 
 
-.container[dir="ltr"]  .Dashborde{
+.container[dir="ltr"] .Dashborde {
     margin-left: var(--rootMarginleft);
- }
- 
- .container[dir="rtl"] .Dashborde {
+}
+
+.container[dir="rtl"] .Dashborde {
     margin-right: var(--rootMarginleft);
- }
+}
 
 
 .hoverIcon {

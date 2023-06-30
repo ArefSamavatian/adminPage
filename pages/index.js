@@ -11,7 +11,7 @@ import TopProducts from './component/home/TopProducts';
 function Dashborde() {
   console.log("index")
   return (
-    <Fragment>
+    <div className='Dashborde homeDashbord'>
 
       <CardBody></CardBody>
       <IncomeChart></IncomeChart>
@@ -19,7 +19,7 @@ function Dashborde() {
       <RecentOrder></RecentOrder>
       <SoldByItem></SoldByItem>
       <TopProducts></TopProducts>
-    </Fragment>
+    </div>
   )
 }
 

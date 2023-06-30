@@ -46,6 +46,7 @@ console.log("card")
     return (
 
         <div className='CardBody'>
+          
             {renderCards}
         </div>
     );

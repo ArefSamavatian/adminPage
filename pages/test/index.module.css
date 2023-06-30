@@ -1,0 +1,43 @@
+.parentContainer {
+    width: 100%;
+
+    border: 1px solid #ccc;
+    background-color: antiquewhite;
+    overflow: scroll;
+
+
+
+}
+
+.childContainer {
+    position: relative;
+    background-color: #f00;
+    /* Set the child container to position: relative */
+    width: 70%;
+    /* Set the width of the child container to 100% of its parent container */
+    height: 100%;
+}
+
+.gooooooz {
+    width: 300px;
+    height: 900px;
+    background-color: green;
+}
+
+.fixedElement {
+    position: fixed;
+    /* Set the fixed element to position: fixed */
+    width: 100%;
+    height: 50px;
+    background-color: blue;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    top: 20%;
+    /* Position the element 20% from the top of the viewport */
+    left: 20%;
+    /* Position the element 20% from the left of the viewport */
+    transform: translate(-20%, -20%);
+    /* Translate the element back by 20% of its own width and height */
+    /* Translate the element back by half of its own width and height */
+}

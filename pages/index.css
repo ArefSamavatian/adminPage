@@ -1,0 +1,12 @@
+.homeDashbord{
+    display: grid;
+   
+
+    grid-template-areas: "a a a"
+        "b b c"
+        "d d d"
+        "e f f";
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}

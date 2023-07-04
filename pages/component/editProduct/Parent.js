@@ -1,28 +1,45 @@
 import { Cascader } from 'antd';
 
 const categoryToOption = (category) => {
-  return category.map((category) => {
-    const option = {
-      value: category._id,
-      label: category.name,
+
+  if (category !== undefined) {
+    const mainOption = { value: '', label: 'اصلی' };
+
+    const addChildren = (cat) => {
+      const option = {
+        value: cat._id,
+        label: cat.name
+      };
+
+      if (cat.children && cat.children.length > 0) {
+        option.children = cat.children.map(addChildren);
+      }
+
+      return option;
     };
-    if (category.children && category.children.length > 0) {
-      option.children = categoryToOption(category.children);
-    }
-    return option;
-  });
+
+    return [mainOption, ...category.map(addChildren)];
+  }
 };
 
-const onChange = (value) => {
-  console.log(value);
-};
+
+
+
 
 function Parent(props) {
-  const { categoryList } = props;
+  const { categoryList, handleChange } = props;
   const options = categoryToOption(categoryList);
 
-  console.log('categoryList', categoryList);
-  console.log('options', options);
+  const onChange = (value) => {
+
+    if (value !== undefined) {
+      const lastValue = value[value.length - 1]; // get the last item in the value array
+      console.log('option', lastValue)
+      handleChange(lastValue)
+    }
+
+
+  };
 
   return <Cascader options={options} onChange={onChange} changeOnSelect />;
 }

@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 
 
-  async function handler(req, res) {
+async function handler(req, res) {
 
     let client
 
@@ -32,7 +32,7 @@ import { MongoClient } from 'mongodb';
             return;
         }
 
-          
+
 
 
         try {
@@ -61,7 +61,7 @@ import { MongoClient } from 'mongodb';
 
     if (req.method === 'GET') {
 
-   
+        console.log('servver request')
 
 
         try {
@@ -76,10 +76,10 @@ import { MongoClient } from 'mongodb';
             const category = await getAll(client)
 
             res.status(200).json({ messeage: 'category get', category: category })
-            
+
         } catch (error) {
             res.status(500).json({ message: 'inserting data failed' })
-           
+
         }
 
         // if want to sort this respons see video 9 

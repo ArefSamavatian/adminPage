@@ -15,27 +15,62 @@ import Select from '@mui/material/Select';
 
 import UploadImage from '../component/editProduct/UploadImage';
 
+import Parent from '../component/editProduct/Parent';
 
 
+// const dummy = [
+//     {
+//         _id: 'sadsad',
+//         name: 'aref',
+//         children: [
+//             {
+//                 _id: 'pariaid',
+//                 name: 'paria',
+//                 children: [
+//                     {
+//                         _id: 'pariaid',
+//                         name: 'paria',
+//                     },
+//                 ]
+//             },
+//         ]
+//     },
+//     {
+//         _id: 'sadsssad',
+//         name: 'ketab',
+//         children: [
+//             {
+//                 _id: 'pariaid',
+//                 name: 'paria',
+//                 children: [
+//                     {
+//                         _id: 'pariaid',
+//                         name: 'paria',
+//                     },
+//                 ]
+//             },
+//         ]
+//     },
+// ]
 
 
 function BasicCategoryInfo(props) {
 
-    const [value, setValue] = useState(1);
-    const onChange = (e) => {
-      console.log('radio checked', e.target.value);
-      setValue(e.target.value);
+    const [state, setState] = useState(1);
+    const handlestate = (e) => {
+        console.log('radio checked', e.target.value);
+        setState(e.target.value);
     };
 
     const [parent, setParent] = useState('');
-    function handleChange(event) {
-        setParent(event.target.value);
+    function handleParent(event) {
+        setParent(event)
     }
 
 
     const [date, setDate] = useState('');
 
-    const [category, setCategory] = useState([])
+    const [mycategory, setMycategory] = useState([])
 
     useEffect(() => {
 
@@ -44,11 +79,13 @@ function BasicCategoryInfo(props) {
 
     function renderCategory() {
 
-        console.log('render')
 
-        fetch('/api/category/')
+
+        fetch('/api/parent/')
             .then((response) => response.json())
-            .then((data) => setCategory(data.category))
+            .then((data) => setMycategory(data.treeData))
+
+        console.log('render', mycategory)
 
     }
 
@@ -62,44 +99,17 @@ function BasicCategoryInfo(props) {
     const metaDisciription = useRef(null);
 
 
-    function registerHandler(event) {
 
+
+    function registerHandler(event) {
         event.preventDefault()
 
-
-        const category = {
-            name: name.current.value,
-            disceription: disceription.current.value,
-            slug: slug.current.value,
-            seotitle: seotitle.current.value,
-            metaDisciription: metaDisciription.current.value,
-            state: state.current.value,
-            date: date ? date.toDate().toLocaleString() : null,
-            parent: parent ? parent : null
-
-
-
+        let categoryDate = date;
+        if (state !== "date" || !categoryDate) {
+            categoryDate = null;
         }
 
-        console.log('category', category)
-
-        fetch('/api/category/', {
-            method: 'POST',
-            body: JSON.stringify({ category: category }),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-
-        })
-            .then((response) => response.json())
-            .then((data) => console.log(data))
-    }
-
-    function registerHandlertest(event) {
-        event.preventDefault()
-
-
-        const category = {
+        const postCategory = {
             name: name.current.value,
             disceription: disceription.current.value,
             slug: slug.current.value,
@@ -107,25 +117,25 @@ function BasicCategoryInfo(props) {
                 seotitle: seotitle.current.value,
                 metaDisciription: metaDisciription.current.value,
             },
-            state: {
-                status: state.current.value,
+            status: {
+                state: state,
+                ...(categoryDate && { date: categoryDate }),
 
             },
-
 
             parent: parent ? parent : null
 
         }
 
-        if (state.current.value === 'date') {
-            category.state.date = date ? date.toDate().toLocaleString() : null;
+        if (state === 'date') {
+            postCategory.status.date = date ? date.toDate().toLocaleString() : null;
         }
 
-        console.log('category', category)
+        console.log('category', postCategory)
 
-        fetch('/api/test/', {
+        fetch('/api/category/', {
             method: 'POST',
-            body: JSON.stringify({ test: category }),
+            body: JSON.stringify({ category: postCategory }),
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -135,120 +145,103 @@ function BasicCategoryInfo(props) {
             .then((data) => console.log(data))
 
 
+
+
+
+
     }
 
 
     return (
+        <>
 
-        <form className={classes.form} onSubmit={registerHandler}>
-            <div className={`box ${classes['basic']}`} >
-                <h1 className='title' >اطلاعات اولیه</h1>
+            <form className={classes.form} onSubmit={registerHandler}>
+                <div className={`box ${classes['basic']}`} >
+                    <h1 className='title' >اطلاعات اولیه</h1>
 
-                <div className={classes.containerInput}>
-                    <label htmlFor='Cname' className='label' >نام دسته بندی</label>
-                    <input type='text' name='Cname' id='Cname' ref={name}></input>
-                </div>
-
-                <div className={classes.containerInput}>
-                    <label className='label' htmlFor="w3review" >توضیحات</label>
-                    <textarea id="w3review" name="w3review" rows="4" ref={disceription} cols="50" defaultValue={'At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.'}></textarea>
-                </div>
-                <div className={classes.containerSlug}>
-                    <label className='label' htmlFor='slug' >اسلاگ</label>
-                    <div className={classes.slug}>
-                        <div>
-                            <p >/https://example.com/category</p>
-                        </div>
-                        <input type='text' name='slug' id='slug' ref={slug}></input>
+                    <div className={classes.containerInput}>
+                        <label htmlFor='Cname' className='label' >نام دسته بندی</label>
+                        <input type='text' name='Cname' id='Cname' ref={name}></input>
                     </div>
 
-                    <p>شناسه منحصر به فرد قابل خواندن برای انسان. بیش از 255 کاراکتر نباشد.
-                    </p>
+                    <div className={classes.containerInput}>
+                        <label className='label' htmlFor="w3review" >توضیحات</label>
+                        <textarea id="w3review" name="w3review" rows="4" ref={disceription} cols="50" defaultValue={'At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.'}></textarea>
+                    </div>
+                    <div className={classes.containerSlug}>
+                        <label className='label' htmlFor='slug' >اسلاگ</label>
+                        <div className={classes.slug}>
+                            <div>
+                                <p >/https://example.com/category</p>
+                            </div>
+                            <input type='text' name='slug' id='slug' ref={slug}></input>
+                        </div>
+
+                        <p>شناسه منحصر به فرد قابل خواندن برای انسان. بیش از 255 کاراکتر نباشد.
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            <div className={`box ${classes['basic']}`}>
-                <h1 className='title'>بهینه سازی موتور جستجو</h1>
-                <p>اطلاعاتی را ارائه دهید که به بهبود کالا کمک کند و دسته بندی را به بالای موتورهای جستجو برساند</p>
-                <div className={classes.containerInput} >
-                    <label className='label' htmlFor='title' >عنوان صفحه</label>
-                    <input type='text' name='title' id='title' ref={seotitle}></input>
-                    <p></p>
+                <div className={`box ${classes['basic']}`}>
+                    <h1 className='title'>بهینه سازی موتور جستجو</h1>
+                    <p>اطلاعاتی را ارائه دهید که به بهبود کالا کمک کند و دسته بندی را به بالای موتورهای جستجو برساند</p>
+                    <div className={classes.containerInput} >
+                        <label className='label' htmlFor='title' >عنوان صفحه</label>
+                        <input type='text' name='title' id='title' ref={seotitle}></input>
+                        <p></p>
+                    </div>
+
+                    <div className={classes.containerInput}>
+                        <label className='label' htmlFor="w3review">توضیحات متا</label>
+                        <textarea id="w3review" name="w3review" rows="4" cols="50" ref={metaDisciription} defaultValue={'At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.'} ></textarea>
+                        <p></p>
+                    </div>
                 </div>
 
-                <div className={classes.containerInput}>
-                    <label className='label' htmlFor="w3review">توضیحات متا</label>
-                    <textarea id="w3review" name="w3review" rows="4" cols="50" ref={metaDisciription} defaultValue={'At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.'} ></textarea>
-                    <p></p>
-                </div>
-            </div>
-
-            <div className={`box ${classes['date']}`}>
-                <h1 className='title'>وضعیت</h1>
+                <div className={`box ${classes['date']}`}>
+                    <h1 className='title'>وضعیت</h1>
 
 
-                <Radio.Group onChange={onChange} value={value}>
-                    <Space direction="vertical">
-                        <Radio value={1}>Option A</Radio>
-                        <Radio value={2}>Option B</Radio>
-                        <Radio value={3}>Option C</Radio>
-                        <Radio value={4}>
-                            More...
-                            {value === 4 ? <Input style={{ width: 100, marginLeft: 10 }} /> : null}
-                        </Radio>
-                    </Space>
-                </Radio.Group>
+                    <Radio.Group onChange={handlestate} value={state}>
+                        <Space direction="vertical">
+                            <Radio value={'active'}>منتشر شده</Radio>
+                            <Radio value={"hide"}>پنهان</Radio>
 
-
-
-                <input type="radio" id="html" name="fav_language" value="active" ref={state} />
-                <label htmlFor="html">منتشر شده</label><br />
-                <input type="radio" id="css" name="fav_language" value="hide" ref={state} />
-                <label htmlFor="css">پنهان</label><br />
-                <input type="radio" id="javascript" name="fav_language" value="date" ref={state} />
-                <label htmlFor="javascript">انتشار در زمان مشخص</label>
-
-                <div style={{ direction: "rtl" }}>
-                    <p>زمان انشار</p>
+                            <Radio value={"date"}>
+                                انتشار در زمان مشخص
+                                {state === "date" ? <DatePicker
+                                    calendar={persian}
+                                    locale={persian_fa}
+                                    calendarPosition="bottom-right"
+                                    value={date}
+                                    onChange={(date) => {
+                                        setDate(date);
+                                        console.log(date.toDate().toLocaleString());
+                                    }} /> : null}
+                            </Radio>
+                        </Space>
+                    </Radio.Group>
 
                 </div>
-            </div>
 
-            <div className={`box ${classes['parent']}`}>
-                <p className='title'> زیر مجموعه</p>
+                <div className={`box ${classes['parent']}`}>
+                    <p className='title'> زیر مجموعه</p>
+                    <Parent categoryList={mycategory} handleChange={handleParent} />
+                </div>
+                <div className='box'>
+                    <p className='title'>upload image</p>
+                    <UploadImage />
+                </div>
 
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
-                    <Select
-                        value={parent}
-                        onChange={handleChange}
-                        displayEmpty
-                        inputProps={{ 'aria-label': 'Without label' }}
-                    >
-                        <MenuItem value="main">
-                            <em>اصلی</em>
-                        </MenuItem>
-                        {category.map((category) => (
-                            <MenuItem key={category._id} value={category._id}>
-                                {category.name}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                    <FormHelperText>Without label</FormHelperText>
-                </FormControl>
-            </div>
-            <div className='box'>
-                <p className='title'>upload image</p>
-                <UploadImage />
-            </div>
 
-            <button onClick={registerHandler}>save</button>
-            <button onClick={registerHandlertest}>save test</button>
+                <button >save test</button>
 
 
 
 
-        </form >
-
+            </form >
+          <button onClick={renderCategory}>click</button>
+        </>
     )
 }
 

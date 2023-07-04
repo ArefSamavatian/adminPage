@@ -325,7 +325,7 @@ function SideBarMenu() {
                     <BiMenu className='SideBaricon icon ' />
                 </div>
 
-                <Image className='logo' style={{ opacity: shrinkMenu || moseOverSide ? 1 : 0 }} src={srcLogo} alt={srcLogo}></Image>
+                {/* <Image className='logo' style={{ opacity: shrinkMenu || moseOverSide ? 1 : 0 }} src={srcLogo} alt={srcLogo}></Image> */}
 
             </li>
             <li className='allMenu' onMouseEnter={isShrinkenter} onMouseLeave={isShrinkout} >

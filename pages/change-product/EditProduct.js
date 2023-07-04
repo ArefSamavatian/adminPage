@@ -18,7 +18,7 @@ import UploadImage from '../component/editProduct/UploadImage';
 import ListOfProperties from '../component/editProduct/ListofProperty';
 import Parent from '../component/editProduct/Parent';
 
-import Option2 from '../component/editProduct/Option2';
+import Option from '../component/editProduct/Option';
 
 
 import Test from '../component/editProduct/Test';
@@ -32,6 +32,14 @@ import Test from '../component/editProduct/Test';
 
 
 function EditProduct(props) {
+
+
+    const [option, setOption] = useState([]);
+
+    function handleOption(event) {
+        setOption(event)
+    }
+
 
     const top100Films = [
         { title: 'The Shawshank Redemption', year: 1994 },
@@ -65,11 +73,12 @@ function EditProduct(props) {
 
     function renderCategory() {
 
-        console.log('render')
 
-        fetch('/api/category/')
+
+        fetch('/api/parent/')
             .then((response) => response.json())
             .then((data) => setCategory(data.category))
+        console.log('render', category)
 
     }
 
@@ -191,12 +200,12 @@ function EditProduct(props) {
                 <p className='title'>property</p>
                 <ListOfProperties />
             </div>
-          
+
             <div className={`box`}>
                 <p className='title'>option</p>
-                <Option2 />
+                <Option handleOption={handleOption} />
             </div>
-          
+
             <button onClick={registerHandler}>save</button>
 
 

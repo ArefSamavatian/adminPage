@@ -3,13 +3,14 @@ import { useState, useRef } from 'react';
 import TabContent from './TabContent';
 import SelectOption from './SelectOption';
 
-const Option2 = () => {
+const Option = () => {
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [activeKey, setActiveKey] = useState(undefined);
   const [items, setItems] = useState([]);
   const newTabIndex = useRef(0);
-
   const [selectedOption, setSelectedOption] = useState('');
+
 
  
 
@@ -112,4 +113,4 @@ const Option2 = () => {
   );
 };
 
-export default Option2;
+export default Option;

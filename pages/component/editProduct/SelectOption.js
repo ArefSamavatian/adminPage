@@ -14,10 +14,13 @@ const App = ({ onOptionSelect }) => {
 
   const addItem = (e) => {
     e.preventDefault();
+
+    //if input is null dont create
     if (!custom) {
       inputRef.current?.focus();
       return;
     }
+    
     setItems([...items, custom]);
     onOptionSelect(custom)
     setCustom('');
@@ -40,7 +43,7 @@ const App = ({ onOptionSelect }) => {
       style={{
         width: 300,
       }}
-      placeholder={selectedItem ? selectedItem : "انتخاب گزینه"}
+      placeholder = "انتخاب گزینه"
 
       dropdownRender={(menu) => (
         <>

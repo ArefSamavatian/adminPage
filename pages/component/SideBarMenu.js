@@ -44,7 +44,9 @@ function SideBarMenu() {
         name: t("SideBar.Caregory"),
         nameas: 'Categoryas',
         icon: <MdCategory className='SideBaricon icon' />,
-        childe: [{ p: "main-category", text: t('SideBar.mainCategory') }, { p: "sub-category", text: t('SideBar.subCategory') }],
+        childe: [
+            //     { p: "main-category", text: t('SideBar.mainCategory') }, { p: "sub-category", text: t('SideBar.subCategory') }
+        ],
         openChilde: false,
     },
     {
@@ -52,7 +54,9 @@ function SideBarMenu() {
         name: t("SideBar.Products"),
         nameas: 'Productsas',
         icon: <MdProductionQuantityLimits className='SideBaricon icon' />,
-        childe: [{ p: 'add-product', text: t("SideBar.AddProduct") }, { p: "list-product", text: t("SideBar.ListProduct") }, { p: "grid-product", text: t("SideBar.GridProduct") }, { p: "product-detail", text: t("SideBar.ProductDetail") }],
+        childe: [
+            // { p: 'add-product', text: t("SideBar.AddProduct") }, { p: "list-product", text: t("SideBar.ListProduct") }, { p: "grid-product", text: t("SideBar.GridProduct") }, { p: "product-detail", text: t("SideBar.ProductDetail") }
+        ],
         openChilde: false,
     },
     {
@@ -60,7 +64,9 @@ function SideBarMenu() {
         name: t("SideBar.Orders"),
         nameas: 'Ordersas',
         icon: <BsFillBasket3Fill className='SideBaricon icon' />,
-        childe: [{ p: "new-order", text: t("SideBar.NewOrder") }, { p: "order-detail", text: t("SideBar.OrderDetail") }, { p: "order-history", text: t("SideBar.OrderHistory") }, { p: "invoice", text: t("SideBar.invoice") }],
+        childe: [
+            //{ p: "new-order", text: t("SideBar.NewOrder") }, { p: "order-detail", text: t("SideBar.OrderDetail") }, { p: "order-history", text: t("SideBar.OrderHistory") }, { p: "invoice", text: t("SideBar.invoice") }
+        ],
         openChilde: false,
     },
     {

@@ -1,88 +1,45 @@
-import { PlusOutlined } from '@ant-design/icons';
-import { Button, Divider, Input, Select, Space } from 'antd';
-import { useRef, useState } from 'react';
+import React from 'react';
+import { DatePicker } from 'antd';
+import moment from 'moment';
+import 'moment/locale/fa'; // Import Persian (Farsi) locale for moment
+import 'antd/dist/reset.css'; // Import Ant Design styles
 
-let index = 0;
+// Import Ant Design styles
 
-const Test = () => {
-  const [items, setItems] = useState(['jack', 'lucy']);
-  const [name, setName] = useState('');
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  const inputRef = useRef(null);
-  const selectRef = useRef(null);
+// Set the locale to Persian (Farsi)
+moment.locale('fa');
 
-  const onNameChange = (event) => {
-    setName(event.target.value);
-  };
+const DatePickerWrapper = (props) => {
+  const { value, onChange } = props;
 
-  const addItem = (e) => {
-    e.preventDefault();
-    const newItem = name || `New item ${index++}`;
-    setTimeout(() => {
-        inputRef.current?.focus();
-        setDropdownVisible(false); // close the dropdown
-      }, 0);
-    setItems([...items, newItem]);
-    setName('');
-  
-    setSelectedItem(newItem); // set newly added item as selected
-   
-  };
+  // Convert the value to Gregorian date for Ant Design DatePicker
+  const convertedValue = value ? moment(value, 'jYYYY/jMM/jDD') : null;
 
-  const handleChange = (value, option) => {
-    console.log(value); // "lucy"
-    console.log(option); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
-    setSelectedItem(option.label); // set selected item as the placeholder
-  };
-
-  const myclick = () => {
-    setDropdownVisible(true); // open the dropdown
+  // Convert the selected Gregorian date to Persian (Iranian) date
+  const handleDateChange = (date, dateString) => {
+    if (onChange) {
+      const convertedDate = dateString ? moment(dateString, 'YYYY/MM/DD').format('jYYYY/jMM/jDD') : null;
+      onChange(convertedDate);
+    }
   };
 
   return (
-    <>
-      <button onClick={myclick}>annn</button>
-      <Select
-        onChange={handleChange}
-        value={selectedItem}
-        onDropdownVisibleChange={setDropdownVisible}
-        open={dropdownVisible}
-        style={{
-          width: 300,
-        }}
-        placeholder={selectedItem ? selectedItem : "custom dropdown render"}
-        dropdownRender={(menu) => (
-          <>
-            {menu}
-            <Divider
-              style={{
-                margin: '8px 0',
-              }}
-            />
-            <Space
-              style={{
-                padding: '0 8px 4px',
-              }}
-            >
-              <Input
-                placeholder="Please enter item"
-                ref={inputRef}
-                value={name}
-                onChange={onNameChange}
-              />
-              <Button type="text" icon={<PlusOutlined />} onClick={addItem}>
-                Add item
-              </Button>
-            </Space>
-          </>
-        )}
-        options={items.map((item) => ({
-          label: item,
-          value: item,
-        }))}
-      />
-    </>
+    <DatePicker {...props} value={convertedValue} onChange={handleDateChange} />
+  );
+};
+
+const Test = () => {
+  const [selectedDate, setSelectedDate] = React.useState(null);
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
+  return (
+    <div>
+      <h1>Select a date:</h1>
+      <DatePickerWrapper value={selectedDate} onChange={handleDateChange} />
+    </div>
   );
 };
 

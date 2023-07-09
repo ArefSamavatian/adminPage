@@ -11,7 +11,7 @@ import TopMenu from './component/TopMenu'
 import SideBarMenu from './component/SideBarMenu';
 
 import { useState } from 'react';
-import Layout from './component/Layout';
+import Layout from './component/layout';
 
 
 function App({ Component, pageProps }) {

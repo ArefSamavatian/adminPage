@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import EditableInputContainer from './EditableInputContainer';
+import { Button, Divider } from 'antd';
 
 const ListOfProperties = () => {
   const [properties, setProperties] = useState([]);
+  console.log('pro',properties)
 
   const handleAdd = () => {
     setProperties([...properties, { key: '', value: '' }]);
@@ -22,28 +24,24 @@ const ListOfProperties = () => {
 
   return (
     <div>
+
       {properties.map((property, index) => (
-        <EditableInputContainer
-          key={index}
-          onDelete={() => handleDelete(index)}
-          onUpdate={(newProperty) => handleUpdate(index, newProperty)}
-          property={property}
-        />
+        <div key={index}>
+          <EditableInputContainer
+          
+            onDelete={() => handleDelete(index)}
+            onUpdate={(newProperty) => handleUpdate(index, newProperty)}
+            property={property}
+          />
+         <Divider style={{ margin: '10px 0' }} />
+        </div>
       ))}
-      <button
-        style={{
-          padding: '8px',
-          backgroundColor: '#1890ff',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer',
-          marginTop: '8px',
-        }}
+      <Button
+        block
         onClick={handleAdd}
       >
         Add Property
-      </button>
+      </Button>
     </div>
   );
 };

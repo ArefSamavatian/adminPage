@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { Input, Button, Space } from 'antd';
+import classes from './EditableInputContainer.module.css'
 
 const EditableInputContainer = ({ onDelete, onUpdate, property }) => {
+  const { TextArea } = Input;
   const [key, setKey] = useState(property.key || '');
   const [value, setValue] = useState(property.value || '');
   const [editing, setEditing] = useState(true);
@@ -19,83 +22,67 @@ const EditableInputContainer = ({ onDelete, onUpdate, property }) => {
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        padding: '8px',
-        border: '1px solid #d9d9d9',
-        borderRadius: '4px',
-      }}
-    >
-      <input
+
+    <Space size="small" className={classes.prop}>
+      <TextArea
         type="text"
         value={key}
         onChange={(e) => setKey(e.target.value)}
+        autoSize
+        allowClear={editing}
         disabled={!editing}
         style={{
-          marginRight: '8px',
-          border: !editing ? 'none' : undefined,
-          backgroundColor: !editing ? 'transparent' : undefined,
-          flex: 1,
+          color: "black",
+          pointerEvents: editing ? "auto" : "none",
         }}
+        bordered={editing ? true : false}
       />
-      <span style={{ marginRight: '8px', fontWeight: 'bold' }}>:</span>
-      <input
+
+      <TextArea
+        className={classes.secendInput}
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         disabled={!editing}
+        autoSize
+        allowClear={editing}
+
         style={{
-          border: !editing ? 'none' : undefined,
-          backgroundColor: !editing ? 'transparent' : undefined,
-          flex: 1,
+          color: "black",
+          pointerEvents: editing ? "auto" : "none",
         }}
+        bordered={editing ? true : false}
       />
-      {editing ? (
-        <button
-          style={{
-            padding: '8px',
-            backgroundColor: '#1890ff',
-            color: '#fff',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer',
-          }}
-          onClick={handleSave}
+
+      <div className={classes.action}>
+        {editing ? (
+
+          <Button
+            type='text'
+            onClick={handleSave}
+            size='small'
+          >
+            Save
+          </Button>
+        ) : (
+          <Button
+            type='text'
+            onClick={handleEdit}
+            size='small'
+          >
+            Edit
+          </Button>
+        )}
+        <Button
+          type='text'
+          onClick={handleDelete}
+          size='small'
         >
-          Save
-        </button>
-      ) : (
-        <button
-          style={{
-            padding: '8px',
-            backgroundColor: '#fff',
-            color: '#1890ff',
-            border: '1px solid #1890ff',
-            borderRadius: '4px',
-            cursor: 'pointer',
-          }}
-          onClick={handleEdit}
-        >
-          Edit
-        </button>
-      )}
-      <button
-        style={{
-          padding: '8px',
-          backgroundColor: '#f5222d',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '4px',
-          marginLeft: '8px',
-          cursor: 'pointer',
-        }}
-        onClick={handleDelete}
-      >
-        Delete
-      </button>
-    </div>
+          Delete
+        </Button>
+      </div>
+    </Space>
+
   );
 };
 

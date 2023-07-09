@@ -1,0 +1,15 @@
+.prop {
+    display: flex;
+  }
+  
+  .secendInput {
+    /* Add any necessary styles for the second input here */
+  }
+  
+  .action {
+    position: relative;
+   
+  
+    display: flex;
+    flex-direction: row;
+  }

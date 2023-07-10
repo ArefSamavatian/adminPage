@@ -62,7 +62,10 @@ body {
 
 
     --mediomspace: 10px;
-    --largeSpace: 20px
+    --largeSpace: 20px;
+
+
+    --borderRaduce3: 3px
 }
 
 .label {
@@ -79,12 +82,12 @@ body {
 }
 
 .box2 {
+
     margin: 10px;
     background-color: var(--lightWhite);
-    border-radius: 3px;
+    border-radius: var(--borderRaduce3);
     padding: var(--mediomspace);
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px
-
 }
 
 .box .title {

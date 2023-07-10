@@ -1,67 +1,108 @@
-import { InputNumber, Checkbox, Form } from 'antd';
 import { useState } from 'react';
+import { Segmented, InputNumber, Collapse, Space, Descriptions } from 'antd';
+
+
+
+
+import classes from './Price.module.css';
+import OffType from './OffType';
 
 function Price() {
-  const [checked, setChecked] = useState(false);
-  const [takhfifchecked, settakhfifchecked] = useState(false);
+    const [selectedSegment, setSelectedSegment] = useState('قیمت ثابت');
 
-  const handleCheckboxChange = (event) => {
-    setChecked(event.target.checked);
-  };
-  const handletakhfifCheckboxChange = (event) => {
-    settakhfifchecked(event.target.checked);
-  };
 
-  const formatNumber = (value) => {
-    if (value) {
-      return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-    return "";
-  };
+    const items = [
+        {
+            key: '1',
+            label: 'اضافه کردن تخفیف',
+            children: <OffType />,
+        },
 
-  const parseNumber = (value) => {
-    if (value) {
-      return value.toString().replace(/,/g, "");
-    }
-    return "";
-  };
+    ];
 
-  const onFinish = (values) => {
-    console.log('Success:', values);
-  };
+    const onChange = (key) => {
+        console.log(key);
+    };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
+    const formatNumber = (value) => {
+        if (value) {
+            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        return "";
+    };
 
-  return (
-    <>
-      <InputNumber
-       
-        formatter={formatNumber}
-        parser={parseNumber}
-        addonAfter="تومان"
-      />
+    const parseNumber = (value) => {
+        if (value) {
+            return value.toString().replace(/,/g, "");
+        }
+        return "";
+    };
 
-      <Checkbox checked={checked} onChange={handleCheckboxChange}>
-        قیمت متغیر
-      </Checkbox>
+    const handleSegmentChange = (value) => {
+        setSelectedSegment(value);
+    };
 
-      <InputNumber
-       
-        addonAfter="عدد"
-        disabled={!checked}
-      />
+    return (
+        <>
+            <Segmented
+                block
+                className={classes.segment}
+                options={['قیمت متغیر', 'قیمت ثابت']}
 
-      <InputNumber
-       
-        formatter={formatNumber}
-        parser={parseNumber}
-        addonAfter="تومان"
-        disabled={!checked}
-      />
-    </>
-  );
+                value={selectedSegment}
+                onChange={handleSegmentChange}
+            />
+            <div className={classes.tabs}>
+                {selectedSegment === 'قیمت ثابت' &&
+
+
+                    <Space
+                        style={{ width: '100%' }}
+                        direction="vertical"
+                    >
+                        <InputNumber
+                            style={{ width: '100%' }}
+                            formatter={formatNumber}
+                            parser={parseNumber}
+                            addonAfter="تومان"
+                        />
+                        <Collapse size="small" items={items} onChange={onChange} />
+                    </Space>
+
+
+                }
+                {selectedSegment === 'قیمت متغیر' &&
+                    <Descriptions layout="vertical" bordered size=''>
+                        <Descriptions.Item label="یک واحد از محصول"  >
+                            <InputNumber
+                                style={{ width: '100%' }}
+                                formatter={formatNumber}
+                                parser={parseNumber}
+                                addonAfter="تومان"
+                            />
+                        </Descriptions.Item>
+                        <Descriptions.Item label={
+
+                            <Space >
+                                <p>از این تعداد بیشتر</p>
+
+                                <InputNumber
+                                />
+                            </Space>
+                        }>
+
+                            <InputNumber
+                                style={{ width: '100%' }}
+                                formatter={formatNumber}
+                                parser={parseNumber}
+                                addonAfter="تومان"
+                            />
+                        </Descriptions.Item>
+
+                    </Descriptions>}
+            </div >
+        </>
+    );
 }
 
 export default Price;

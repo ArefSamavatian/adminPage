@@ -1,0 +1,13 @@
+.segment {
+    border-radius: 0;
+}
+
+
+.tabs {
+    height: fit-content;
+    padding: 10px;
+    direction: rtl;
+
+
+
+}

@@ -2,13 +2,14 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Button, Form, Input, Select } from 'antd';
 import classes from './EditProduct.module.css';
 import TagsInput from '../component/editProduct/TagsInput';
-import Price from '../component/editProduct/Price';
+
 import UploadImage from '../component/editProduct/UploadImage';
 import ListOfProperties from '../component/editProduct/ListofProperty';
 import Parent from '../component/editProduct/Parent';
 import Option from '../component/editProduct/Option';
+import Price from '../component/editProduct/Price';
 
-import Test from '../component/editProduct/Test';
+
 
 
 function EditProduct(props) {
@@ -85,100 +86,97 @@ function EditProduct(props) {
   }
 
   return (
+    //remove top div 
     <div onSubmit={registerHandler}
       className={classes.container}>
       <Form layout='vertical'
-        className={classes.form}>
-        <div className={classes.basic}>
-          <div className='box2'>
-            <Form.Item
-              className={classes.name}
-              label='نام  محصول'
-              rules={[
-                {
-                  required: true,
-                },
-              ]}
-              style={{ fontWeight: 'bold' }}
-            >
-              <Input ref={name} />
-            </Form.Item>
+        className={classes.formContainer}>
 
-            <Form.Item className={classes.disceription} label='توضیحات' style={{ fontWeight: 'bold' }}>
-              <Input.TextArea
-
-                ref={disceription} />
-            </Form.Item>
-
-            <Form.Item
-              className={classes.category}
-              label='دسته بندی'
-              style={{ fontWeight: 'bold' }}
-            >
-              <Parent categoryList={category} />
-            </Form.Item>
-
-          </div>
-
+        <div className='box2'>
           <Form.Item
-            label='خصوصیات'
-            className={`box2 ${classes.property}`}
-            style={{ fontWeight: 'bold' }}>
-            <ListOfProperties />
-          </Form.Item>
 
-          <Form.Item
-            className={`box2 ${classes.property}`}
-            style={{ fontWeight: 'bold' }}>
-            <Test />
-          </Form.Item>
+            label='نام  محصول'
+            rules={[
+              {
+                required: true,
+              },
+            ]}
 
-
-
-
-
-          <Form.Item
-            className={classes.price}
-            label='قیمت'
-            style={{ fontWeight: 'bold' }}
           >
-            <Price />
+            <Input ref={name} />
+          </Form.Item>
+
+          <Form.Item label='توضیحات' >
+            <Input.TextArea
+
+              ref={disceription} />
           </Form.Item>
 
           <Form.Item
-            className={classes.option}
-            label='option' style={{ fontWeight: 'bold' }}>
-            <Option handleOption={handleOption} />
-          </Form.Item>
 
-          <Form.Item
-            className={classes.tags}
-            label='تگ ها'
-            style={{ fontWeight: 'bold' }}
+            label='دسته بندی'
+
           >
-            <TagsInput />
+            <Parent categoryList={category} />
           </Form.Item>
-
 
         </div>
+
         <div
-          className={classes.UploadImage}
+          className='box2'
         >
           <Form.Item
             label='تصاویر'
-            style={{ fontWeight: 'bold' }}
+            className={classes.form}
           >
             <UploadImage />
           </Form.Item>
         </div>
 
+        <div className='box2'>
+          <Form.Item
+
+            label='خصوصیات'
+            className={classes.form}
+          >
+            <ListOfProperties />
+          </Form.Item>
+        </div>
+
+        <div className='box2'>
+          <Form.Item
+            className={classes.price}
+          >
+            <Price className={classes.price} />
+          </Form.Item>
+
+        </div>
 
 
-        <div>
+        <div className='box2'>
+          <Form.Item
+            className={classes.form}
+            label='option' >
+            <Option handleOption={handleOption} />
+          </Form.Item>
+        </div>
+
+        <div className='box2'>
+          <Form.Item
+            className={classes.form}
+            label='تگ ها'
+
+          >
+            <TagsInput />
+          </Form.Item>
+        </div>
+
+
+        <div className='box2'>
           <h1 className='title'>بهینه سازی موتور جستجو</h1>
           <Form.Item
             label='عنوان صفحه'
-            style={{ fontWeight: 'bold' }}
+
           >
             <Input ref={seotitle} />
             <p>
@@ -189,14 +187,14 @@ function EditProduct(props) {
 
           <Form.Item
             label='توضیحات متا'
-            style={{ fontWeight: 'bold' }}
+
           >
             <Input.TextArea ref={metaDisciription} />
           </Form.Item>
 
           <Form.Item
             label='اسلاگ'
-            dir='ltr' style={{ fontWeight: 'bold' }}>
+            dir='ltr' >
             <Input
               ref={slug}
               addonBefore='https://example.com/products/'

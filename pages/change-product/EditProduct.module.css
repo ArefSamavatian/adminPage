@@ -3,123 +3,19 @@
 
 }
 
-.form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+.formContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
 }
 
-.name {
- 
-}
-
-.basic {
-    width: 40%;
- 
-}
-
-.UploadImage {
-    width: 50%;
-}
-
-/* 
-
-
-.basic {
+.price {
+    padding: 0;
+    height: fit-content;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    height: 400px;
-    justify-content: space-around;
-    gap: 20px;
-    height: fit-content;
 
+    direction: ltr;
 
 }
-
-
-.form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-
-}
-
-.containerInput input {
-    height: 36;
-    padding: 6px 13px;
-    width: 100%;
-    border-radius: 8px;
-    border: solid 1px var(--darkLing);
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-}
-
-.slug {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-bottom: 10px;
-
-}
-
-.slug div {
-    display: flex;
-    height: 36px;
-    padding: 6px 13px;
-    align-items: center;
-    background-color: rgb(197, 197, 197);
-    border: solid 1px var(--darkLing);
-    border-radius: 8px 0px 0px 8px;
-   
-}
-
-.slug input {
-    width: 100%;
-    padding: 6px 13px;
-    border: solid 1px var(--darkLing);
-   border-left: none;
-   border-radius: 0px 8px 8px 0px;
-   direction: ltr;
-   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-}
-
-
-
-.containerInput textarea {
-    height: 36;
-    padding: 6px 13px;
-    width: 100%;
-    resize: vertical;
-    border-radius: 10px;
-    border: solid 1px var(--darkLing);
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-}
-
-.containerInput label {
-    display: block;
-
-    font-size: 14px;
-    margin-bottom: 6px;
-    color: var(--darkText);
-}
-.containerSlug label {
-    display: block;
-
-    font-size: 14px;
-    margin-bottom: 6px;
-    color: var(--darkText);
-}
-
-.containerSlug > p:last-child {
-    color: var(--darkText);
-    font-size: 14px;
-
-}
-
-.date input{
-    margin-bottom: 10px;
-    margin-left: 8px;
-}
-
-.date h1{
-   margin-bottom: 20px;
-   
-} */
